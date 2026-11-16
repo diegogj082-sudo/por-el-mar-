@@ -1,0 +1,531 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Organización dedicada a proteger y conservar la vida marina.">
+  <title>G.D.A. Corp. | Protección de la vida marina</title>
+
+  <style>
+    :root {
+      --azul-noche: #073b4c;
+      --azul: #087e8b;
+      --turquesa: #20b2aa;
+      --agua: #dff7f5;
+      --arena: #f7f4ec;
+      --texto: #20343b;
+      --blanco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--texto);
+      background: linear-gradient(180deg, #e8fbfa, var(--arena));
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 1rem 6%;
+      background: var(--azul-noche);
+      color: white;
+      box-shadow: 0 4px 16px #073b4c22;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: .8rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: .35rem .55rem;
+      border-radius: 8px;
+      font-size: .94rem;
+    }
+
+    .nav-links a:hover {
+      background: var(--azul);
+    }
+
+    .hero {
+      padding: 5rem 1.2rem;
+      color: white;
+      text-align: center;
+      background: linear-gradient(
+        135deg,
+        #073b4c,
+        #087e8b 60%,
+        #20b2aa
+      );
+      border-radius: 0 0 2.5rem 2.5rem;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: .35rem .9rem;
+      margin-bottom: .8rem;
+      border: 1px solid #ffffff88;
+      border-radius: 999px;
+      font-size: .8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: .2rem auto;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.15;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: 1.2rem auto;
+      font-size: 1.1rem;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: .8rem;
+      padding: .8rem 1.3rem;
+      color: var(--azul-noche);
+      background: white;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: var(--agua);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2.5rem 1.2rem 3rem;
+    }
+
+    section {
+      scroll-margin-top: 100px;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--azul-noche);
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .intro {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.08rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(240px, 1fr)
+      );
+      gap: 1.2rem;
+    }
+
+    .card {
+      padding: 1.5rem;
+      background: var(--blanco);
+      border-radius: 1.2rem;
+      border: 1px solid #087e8b22;
+      box-shadow: 0 10px 28px #073b4c0e;
+    }
+
+    .card h3 {
+      color: var(--azul);
+      margin-top: 0;
+    }
+
+    .icon {
+      font-size: 2.2rem;
+    }
+
+    .foda {
+      border-top: 6px solid var(--turquesa);
+    }
+
+    .foda:nth-child(2) {
+      border-top-color: #5b8def;
+    }
+
+    .foda:nth-child(3) {
+      border-top-color: #e9a23b;
+    }
+
+    .foda:nth-child(4) {
+      border-top-color: #d95d5d;
+    }
+
+    .five-p {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(155px, 1fr)
+      );
+      gap: .9rem;
+    }
+
+    .p-item {
+      background: var(--agua);
+      border-radius: 1rem;
+      padding: 1.1rem;
+      text-align: center;
+    }
+
+    .p-item h3 {
+      color: var(--azul-noche);
+      margin: .3rem 0;
+    }
+
+    .callout {
+      background: var(--azul-noche);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 1.2rem;
+      margin-top: 1.3rem;
+    }
+
+    .callout h3 {
+      margin-top: 0;
+      color: #8ff3e8;
+    }
+
+    footer {
+      padding: 1.8rem 1rem;
+      text-align: center;
+      color: #eafafa;
+      background: var(--azul-noche);
+    }
+
+    footer p {
+      margin: .25rem;
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        justify-content: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 3.5rem 1rem;
+      }
+
+      .section-title {
+        font-size: 1.65rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a class="brand" href="#inicio">🌊 G.D.A. Corp.</a>
+
+    <div class="nav-links">
+      <a href="#introduccion">Introducción</a>
+      <a href="#mision-vision">Misión y visión</a>
+      <a href="#foda">FODA</a>
+      <a href="#objetivo">Agenda 2030</a>
+      <a href="#conclusion">Conclusión</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="inicio">
+    <div class="eyebrow">
+      Cuidado del océano · Futuro sostenible
+    </div>
+
+    <h1>
+      Organización para la Salud de la Vida Marina
+      y el Cuidado del Mar
+    </h1>
+
+    <p>
+      Trabajamos para proteger los ecosistemas marinos,
+      reducir la contaminación y promover el uso responsable
+      de los recursos del océano.
+    </p>
+
+    <a class="button" href="#introduccion">
+      Conoce nuestra causa ↓
+    </a>
+  </header>
+
+  <main>
+
+    <section id="introduccion">
+      <h2 class="section-title">Introducción</h2>
+
+      <p class="intro">
+        La vida submarina es muy importante para nuestro
+        planeta, ya que los mares y océanos son el hogar de
+        miles de especies y ayudan a mantener el equilibrio
+        de la naturaleza. Sin embargo, la contaminación y
+        otras actividades humanas están dañando estos
+        ecosistemas. Por eso, la Agenda 2030 incluye el
+        Objetivo 14, que busca conservar y utilizar de manera
+        responsable los océanos y la vida marina, para
+        protegerlos y asegurar un mejor futuro.
+      </p>
+    </section>
+
+    <section id="mision-vision">
+      <h2 class="section-title">Misión y visión</h2>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="icon">🎯</div>
+          <h3>Misión</h3>
+
+          <p>
+            Proteger y conservar los ecosistemas marinos
+            mediante soluciones sostenibles que reduzcan la
+            contaminación de los océanos, promuevan el uso
+            responsable de los recursos marinos y fomenten
+            la participación de las comunidades en el cuidado
+            de la vida submarina.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🌎</div>
+          <h3>Visión</h3>
+
+          <p>
+            Ser una empresa líder en la conservación de los
+            océanos, reconocida por impulsar un futuro
+            sostenible donde los mares estén libres de
+            contaminación, los ecosistemas marinos sean
+            saludables y las especies submarinas puedan
+            desarrollarse y mantenerse para las futuras
+            generaciones.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="foda">
+      <h2 class="section-title">Análisis FODA</h2>
+
+      <div class="grid">
+
+        <article class="card foda">
+          <div class="icon">💪</div>
+          <h3>F · Fortalezas</h3>
+
+          <p>
+            No somos una empresa cualquiera, sino una
+            organización o fundación. Nuestra fortaleza es
+            obtener y aplicar fondos mediante campañas
+            corporativas de recaudación y mercancías para
+            limpiar los mares y cuerpos de agua, además de
+            proteger a las diversas especies marinas.
+          </p>
+        </article>
+
+        <article class="card foda">
+          <div class="icon">🚀</div>
+          <h3>O · Oportunidades</h3>
+
+          <p>
+            Podemos expandirnos mediante juegos,
+            colaboraciones y otras actividades para conectar
+            con más personas y aumentar los fondos destinados
+            al cuidado, la limpieza y la protección del
+            ambiente marino.
+          </p>
+        </article>
+
+        <article class="card foda">
+          <div class="icon">🔎</div>
+          <h3>D · Debilidades</h3>
+
+          <p>
+            Tenemos limitaciones relacionadas con los
+            colaboradores y con la metodología para aplicar
+            nuestras prácticas de protección en ciertos
+            lugares. Además, nuestra lucha por la vida marina
+            puede no parecer atractiva para todo el público.
+          </p>
+        </article>
+
+        <article class="card foda">
+          <div class="icon">⚠️</div>
+          <h3>A · Amenazas</h3>
+
+          <p>
+            Entre las amenazas se encuentran las malas
+            prácticas de las pesquerías industriales y la
+            contaminación impulsada por algunas empresas.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="objetivo">
+      <h2 class="section-title">
+        La Agenda 2030 y el desarrollo sostenible
+      </h2>
+
+      <div class="card">
+        <p>
+          El enfoque de la Agenda 2030 no es solamente
+          asistencialista: no busca dar ayuda temporal, sino
+          cambiar las reglas del juego a nivel global. Su
+          lema central es <strong>“no dejar a nadie atrás”</strong>,
+          lo que significa que el progreso no es válido si
+          las comunidades más vulnerables siguen marginadas.
+        </p>
+
+        <p>
+          A diferencia de planes anteriores de la ONU, como
+          los Objetivos de Desarrollo del Milenio, la Agenda
+          2030 es universal. Esto significa que aplica tanto
+          a países ricos como a países en desarrollo, porque
+          problemas como la crisis climática y la desigualdad
+          económica son globales y requieren compromisos
+          reales y medibles.
+        </p>
+      </div>
+
+      <h3 class="section-title" style="font-size:1.5rem; margin-top:2rem;">
+        Las 5 “P” del desarrollo sostenible
+      </h3>
+
+      <div class="five-p">
+
+        <article class="p-item">
+          <div class="icon">👥</div>
+          <h3>Personas</h3>
+          <p>
+            Poner fin a la pobreza y al hambre, y asegurar
+            que todas las personas desarrollen su potencial
+            con dignidad e igualdad.
+          </p>
+        </article>
+
+        <article class="p-item">
+          <div class="icon">🌱</div>
+          <h3>Planeta</h3>
+          <p>
+            Proteger los recursos naturales y el clima para
+            las generaciones futuras, cambiando los patrones
+            de consumo y producción.
+          </p>
+        </article>
+
+        <article class="p-item">
+          <div class="icon">📈</div>
+          <h3>Prosperidad</h3>
+          <p>
+            Promover economías sostenibles y un progreso
+            tecnológico y social en armonía con la naturaleza.
+          </p>
+        </article>
+
+        <article class="p-item">
+          <div class="icon">🕊️</div>
+          <h3>Paz</h3>
+          <p>
+            Fomentar sociedades pacíficas, justas e inclusivas,
+            libres de temor y violencia.
+          </p>
+        </article>
+
+        <article class="p-item">
+          <div class="icon">🤝</div>
+          <h3>Alianzas</h3>
+          <p>
+            Impulsar la colaboración entre gobiernos,
+            sector privado y sociedad civil para cumplir
+            la Agenda.
+          </p>
+        </article>
+
+      </div>
+
+      <div class="callout">
+        <h3>Objetivo 14: Vida submarina</h3>
+
+        <p>
+          Conservar y utilizar sosteniblemente los océanos,
+          los mares y los recursos marinos. Nuestra
+          organización contribuye a esta meta mediante
+          campañas de limpieza, recaudación de fondos,
+          protección de especies y participación comunitaria.
+        </p>
+      </div>
+    </section>
+
+    <section id="conclusion">
+      <h2 class="section-title">Conclusión</h2>
+
+      <div class="card">
+        <p>
+          En conclusión, es importante cuidar la vida
+          submarina para proteger a los animales marinos y
+          mantener limpios los océanos. Por eso, nuestra
+          propuesta es crear un producto ecológico que ayude
+          a reducir la contaminación del agua y los daños a
+          las especies marinas. Así podemos contribuir al
+          Objetivo 14 de la Agenda 2030 y demostrar que con
+          pequeñas acciones podemos lograr un cambio positivo
+          para el planeta.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p><strong>DIEGO GOMEZ ABAN · N.L.: 8</strong></p>
+    <p>G.D.A. Corp. · Una por un futuro bien hecho</p>
+    <p>Protejamos hoy los océanos del mañana 🌊</p>
+  </footer>
+
+</body>
+</html>
